@@ -44,7 +44,9 @@ def send_message():
     history = client.get_history(chat_id, limit=1)
     now_time = history[0].date
     show_now_time = datetime.fromtimestamp(now_time)
-    print(show_now_time)
+    # print(show_now_time)
+    if "خطا" in history[0].text:
+        client.send_message(chat_id=SUPPORTER, text="بازاربین قطع داده :(")
     if now_time == before:
         print(''.join((str(number_of_delay), ' : ', "not change in channel")))
         number_of_delay += 1
